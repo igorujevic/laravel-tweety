@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TweetsController;
 use App\Http\Controllers\ProfilesController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +28,6 @@ Route::middleware('auth')->group(function () {
 Route::get('profiles/{user:name}',[ProfilesController::class, 'show'])->name('profile');
 
 Auth::routes();
+
+Route::get('/logout', [LoginController::class, 'logout']);
 

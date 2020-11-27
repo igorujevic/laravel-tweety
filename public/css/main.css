@@ -1,0 +1,8 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);* {
+  font-family: "Nunito", Arial, Helvetica, sans-serif;
+}
+
+.brand-logo h1 {
+  font-size: 2rem !important;
+}
+
