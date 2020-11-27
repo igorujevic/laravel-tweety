@@ -17,7 +17,8 @@ class CreateFollowsTable extends Migration
             $table->primary(['user_id', 'following_user_id']);
             $table->foreignId('user_id');
             $table->foreignId('following_user_id');
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('following_user_id')->references('id')->on('users')->onDelete('cascade');
