@@ -48,7 +48,7 @@
           name="avatar"
           id="avatar"
           value="{{ $user->avatar }}"
-          required>
+          >
 
         @error('username')
           <p class="text-red-500 text-xs mt-2"> {{ $message }} </p>

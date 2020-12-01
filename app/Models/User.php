@@ -50,7 +50,17 @@ class User extends Authenticatable
 
     public function getAvatarAttribute($value)
     {
-      return asset('storage/'.$value);
+      if($value)
+      {
+        return asset('storage/'.$value);
+      }
+
+      return 'https://st3.depositphotos.com/4111759/13425/v/600/depositphotos_134255634-stock-illustration-avatar-icon-male-profile-gray.jpg';
+    }
+
+    public function setPasswordAttribute($value)
+    {
+      $this->attributes['password'] = bcrypt($value);
     }
 
     public function timeline()
