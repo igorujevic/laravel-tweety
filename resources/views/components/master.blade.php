@@ -30,13 +30,6 @@
           <span class="fas fa-feather fa-2x mr-2"></span>
           <h1>Tweety</h1>
         </a>
-        @auth
-          <a
-            href="{{ route('logout') }}"
-            class="border border-gray-300 shadow rounded-full px-2 py-1 text-gray-500">
-            logout
-          </a>
-        @endauth
       </header>
     </section>
     {{ $slot}}

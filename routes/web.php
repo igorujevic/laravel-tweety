@@ -37,5 +37,5 @@ Route::get('profiles/{user:username}',[ProfilesController::class, 'show'])->name
 
 Auth::routes();
 
-Route::get('/logout', [LoginController::class, 'logout']);
+Route::post('/logout', [LoginController::class, 'logout']);
 

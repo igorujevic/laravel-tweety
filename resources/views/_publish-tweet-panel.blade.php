@@ -6,7 +6,7 @@
       id="body"
       class="w-full outline-none"
       placeholder="What's up doc?"
-
+      required
     >
     </textarea>
     <hr class="my-4">
