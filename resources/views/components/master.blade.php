@@ -34,5 +34,11 @@
     </section>
     {{ $slot}}
   </div>
+
+  {{-- stop refreshing page feel --}}
+  <script>
+    const Turbolinks = require("turbolinks")
+    Turbolinks.start()
+  </script>
 </body>
 </html>

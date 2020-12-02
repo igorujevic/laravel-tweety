@@ -10,6 +10,7 @@ use Illuminate\Notifications\Notifiable;
 use App\Followable;
 // models
 use App\Models\Tweet;
+use App\Models\Likes;
 
 class User extends Authenticatable
 {
@@ -68,7 +69,11 @@ class User extends Authenticatable
       // include users and followers tweets
       $friends = $this->follows()->pluck('id');
 
-      return Tweet::whereIn('user_id', $friends)->orWhere('user_id', $this->id)->latest()->paginate(50);
+      return Tweet::whereIn('user_id', $friends)
+        ->orWhere('user_id', $this->id)
+        ->withLikes()
+        ->latest()
+        ->paginate(50);
     }
 
     public function tweets()
@@ -81,5 +86,10 @@ class User extends Authenticatable
       $path = route('profile', $this->username);
 
       return $append ? "{$path}/{$append}" : $path;
+    }
+
+    public function likes()
+    {
+      return $this->hasMany(Like::class);
     }
 }
